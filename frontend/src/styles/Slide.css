@@ -1,0 +1,176 @@
+.slider{
+    width:100%;
+    height: 90vh;
+    position:relative;
+    overflow:hidden;
+ 
+}
+
+.slide{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    opacity:0;
+    transition:all 0.5s ease;
+    transform: translateX(-50%);
+}
+
+.content h2{
+    font-size: 1rem;
+}
+
+.content p{
+    font-size: 3rem;
+    text-transform: capitalize;
+}
+
+@media screen and (min-width:600px){
+
+    .slide{
+        position: absolute;
+        width:100%;
+        height:100%;
+        opacity:0;
+        transition:all 0.5s ease;
+        transform: translateX(-50%);
+        z-index:999;
+    }
+
+
+    .slide img{
+        width:100%;
+        height:100%;
+    }
+
+    .content{
+    position:absolute;
+    top:23rem;
+    left:5rem;
+    background-color: rgba(0,0,0,0.3);
+    width:50%;
+    padding:3rem;
+    border-radius: 20px;
+    animation:slide-up 1s ease 0.4s;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+    opacity:0;
+}
+
+
+
+
+
+}
+
+@media screen and (max-width:600px){
+    .content{
+        width:80%;
+        font-size: 1rem;
+       
+    }
+    .content p{
+        font-size:1rem;
+    }
+    .content button{
+        width:2rem;
+        height:2rem;
+    }
+    
+}
+
+
+.slide img{
+    height:100%;
+}
+
+
+.content{
+    position:absolute;
+    top:23rem;
+    left:5rem;
+    background-color: rgba(0,0,0,0.3);
+    width:50%;
+    padding:3rem;
+    border-radius: 20px;
+    animation:slide-up 1s ease 0.4s;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+    opacity:0;
+}
+
+.content button{
+    width:8rem;
+    height: 3rem;
+    font-size: 20px;
+   
+}
+
+.current{
+    opacity:1;
+    transform: translateX(0);
+}
+
+.current .content{
+    opacity: 1;
+
+}
+
+.arrow{
+    top:50%;
+    border: 2px solid black;
+    background-color: transparent;
+    position:absolute;
+    z-index: 999;
+    color:white;
+    width:2rem;
+    height: 2rem;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.arrow:hover{
+    background-color: rgb(109, 187, 223);
+}
+
+.next{
+   
+    right:1.5rem;  
+}
+
+.prev{
+    left:1.5rem;
+    
+}
+
+hr{
+    border:2px solid #063970;
+    width:50%;
+    height:2px;
+}
+
+.btn-slide{
+    background-color:#063970;
+    width:2rem;
+    height:2rem;
+    border-radius:6px;
+    color:aliceblue;
+}
+
+@keyframes slide-up{
+    0%{
+        visibility: visible;
+    }
+
+    100%{
+        top:17rem;
+        visibility: visible;
+    }
+}
+
+.content > *{
+    color:beige;
+    margin-bottom: 1rem;
+}
+

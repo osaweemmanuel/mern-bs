@@ -1,0 +1,121 @@
+Create TABLE Customer(
+    customer_id INT,
+    customerName VARCHAR(40),
+    customerAddress VARCHAR(100),
+    customerEmail VARCHAR(100),
+    customerPhone VARCHAR(10),
+    PRIMARY KEY (customer_id)
+
+)
+
+
+CREATE TABLE PRODUCT(
+    product_id INT,
+    productName VARCHAR(10),
+    productPrice NUMERIC(8,2),
+    productDescription VARCHAR(40),
+    PRIMARY KEY (product_id)
+)
+
+CREATE TABLE ORDER(
+    order_id INT,
+    product_id,
+    customer_id,
+    orderDate currentDate(),
+    orderStatus VARCHAR(10),
+    orderQuantity INT,
+    PRIMARY KEY (order_id),
+    FOREIGN KEY (product_id) REFERENCES PRODUCT(product_id),
+    FOREIGN KEY(customer_id) REFERENCES CUSTOMER(customer_id)
+)
+
+
+COURIER,SHIPMENT,ORDER
+
+CREATE TABLE COURIER(
+    courier_id INT,
+    courierName VARCHAR(10),
+    courierSalary INT,
+    PRIMARY KEY (courier_id)
+
+)
+
+CREATE DATABASE
+
+
+
+CREATE DATABASE SHIPMENT(
+    SHIPMENT_ID INT,
+    SHIPMENT_DATE Date,
+    PRIMARY KEY (SHIPMENT_ID),
+    FOREIGN KEY (courier_id) REFERENCES COURIER(courier_id)
+    FOREIGN key (order_id) REFERENCES ORDER(order_id)
+)
+
+
+
+
+
+
+
+
+
+
+
+
+Building a database schema for a restaurant booking scenario
+
+Customer,tbl,tbl_ORDER,WAITER,MENU,MENU_ITEM,restaurant
+
+CREATE TABLE CUSTOMER(
+    customerID INT,
+    customerName VARCHAR(20),
+    customerEmail VARCHAR(100),
+    customerAddress VARCHAR(30),
+    customerPhone VARCHAR(10),
+    PRIMARY KEY (customerID)
+)
+
+CREATE TABLE MENU(
+    menuId INT,
+    Description VARCHAR(50),
+    availablity VARCHAR(50)
+    PRIMARY KEY (menuId)
+)
+
+CREATE TABLE MENU_ITEM(
+    menu_item.ID INT,
+    description VARCHAR(10),
+    menuId INT,
+    price DECIMAL(8,2),
+    availability BOOLEAN DEFAULT TRUE NOT NULL CHECK (availability IN ('Y', 'N')),
+    FOREIGN KEY (menuId) REFERENCES MENU(menuId)
+    PRIMARY KEY (menu_item.ID)
+
+)
+
+
+CREATE Tbl TABLE(
+    TblID INT,
+    TblLocation VARCHAR(10)
+    PRIMARY KEY (TblID)
+)
+
+CREATE tbl_ORDER TABLE(
+    tbl_orderId INT,
+    tbl_orderDate Date,
+    waiterId INT,
+    tbl_orderId INT,
+    FOREIGN KEY (waiterId) REFERENCES Waiter(waiterId) 
+    FOREIGN KEY (tbl_orderId) REFERENCES TBL(TblId)
+    PRIMARY KEY (tbl_orderId)
+)
+
+CREATE Waiter TABLE(
+    waiterId INT,
+    waiterName VARCHAR(10),
+    waiterAddress VARCHAR(10),
+    waiterPhone VARCHAR(10),
+    shift VARCHAR(10)
+    PRIMARY KEY (waiterId)
+)
